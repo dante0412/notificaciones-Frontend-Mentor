@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans Extrabold';
+    src: url(../fonts/static/PlusJakartaSans-ExtraBold.ttf);
+}
+@font-face {
+    font-family: 'Plus Jakarta Sans normal';
+    src: url(../fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: 'Plus Jakarta Sans medium';
+    src: url(../fonts/static/PlusJakartaSans-Medium.ttf);
+}
+
+:root {
+    --font-bold: 'Plus Jakarta Sans Extrabold';
+    --font-normal: 'Plus Jakarta Sans normal';
+    --font-medium: 'Plus Jakarta Sans medium';
+    --font-primary-color: '';
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-bold);
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    background-color: #F9FAFE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.notify-app {
+    width: 700px;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1em;
+    -webkit-box-shadow: 0px 0px 32px 14px rgba(0,0,0,0.1); 
+    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.05);
+}
+
+.head {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+.head .head-title {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+.head .number-notifys {
+    font-size: 1rem;
+    padding: .2rem .7rem;
+    margin-left: 0.4em;
+    color: white;
+    border-radius: .3rem;
+    background-color: #153D85;
+}
+.head .head-read {
+    display: flex;
+    font-size: .9rem;
+    font-weight: thin;
+    padding: .2rem .7rem;
+    font-family: var(--font-normal);
+}
+.notify-badge .avatar img,
+.message-badge  .avatar img {
+    width: 3rem;
+    font-family: var(--font-normal);
+    margin-right: 1rem;
+}
+.notify-badge .notify-message .action p,
+.message-badge .notify-message .action p  {
+    margin-bottom: .5rem;
+    color: #8d8d8d;
+}
+.notify-badge .notify-message .action p strong,
+.message-badge .notify-message .action p strong {
+    color: #646464;
+    font-family: var(--font-bold);
+}
+.notify-badge .notify-message .action p strong.name,
+.message-badge .notify-message .action p strong.name {
+    color: black;
+    font-family: var(--font-bold);
+}
+.notify-badge .notify-message .action p .asterisk, 
+.message-badge .notify-message .action p .asterisk{
+    color: red;
+    font-family: var(--font-bold);
+}
+.notify-badge .notify-message .time p, 
+.message-badge .notify-message .time p{
+    color: #8d8d8d;
+    font-size: .9rem;
+}
+.notify-badge, .message-badge {
+    margin: .5rem 0;
+    padding: 1rem 1rem;
+    display: flex;
+    font-family: var(--font-medium);
+    background-color: #F9FAFE;
+    border-radius: 1rem;
+}
+.notify-badge .notify-message .action p strong.chess{
+    color: #153D85;
+}
+.message-badge {
+    background-color: white;
+}
+.message-badge .private-msg{
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #8d8d8d;
+    color: #8d8d8d;
+    border-radius: 1rem;
+}
