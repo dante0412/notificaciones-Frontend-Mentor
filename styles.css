@@ -1,121 +1,207 @@
-@font-face {
-    font-family: 'Plus Jakarta Sans Extrabold';
-    src: url(../fonts/static/PlusJakartaSans-ExtraBold.ttf);
+* {
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
 }
+
 @font-face {
-    font-family: 'Plus Jakarta Sans normal';
-    src: url(../fonts/PlusJakartaSans-VariableFont_wght.ttf);
+    font-family: 'plusjakarta';
+    src: url(../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf);
+
+    
 }
+
 @font-face {
-    font-family: 'Plus Jakarta Sans medium';
-    src: url(../fonts/static/PlusJakartaSans-Medium.ttf);
+    font-family: "plusjakartabold";
+    src: url(../assets/fonts/static/PlusJakartaSans-ExtraBold.ttf);
 }
+
+
 
 :root {
-    --font-bold: 'Plus Jakarta Sans Extrabold';
-    --font-normal: 'Plus Jakarta Sans normal';
-    --font-medium: 'Plus Jakarta Sans medium';
-    --font-primary-color: '';
-}
+    --primary-color: hsl(219, 85%, 26%);
+    --primary-color-2 : hsl(1, 90%, 64%);
+    --White: hsl(0, 0%, 100%);
+    --Very-light-grayish-blue: hsl(210, 60%, 98%);
+    --Light-grayish-blue-1: hsl(211, 68%, 94%);
+    --Light-grayish-blue-2: hsl(205, 33%, 90%);
+    --Grayish-blue: hsl(219, 14%, 63%);
+    --Dark-grayish-blue: hsl(219, 12%, 42%);
+    --Very-dark-blue: hsl(224, 21%, 14%);
 
-* {
-    padding: 0;
-    margin: 0;
+
+
 }
 
 body {
-    font-family: var(--font-bold);
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    background-color: #F9FAFE;
+    font-family: 'plusjakarta';
+    background-color: var(--Very-light-grayish-blue);
+    margin:2.5rem 0;
+    font-size: 16px;
+}
+
+p {
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color:inherit;
+}
+
+.container {
+    max-width: 540px;
+    margin:auto;
+    background-color: var(--White);
+    padding:  1.5rem;
+}
+
+.notifications-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    flex-direction: column;
+    gap:.6rem;
 }
 
-.notify-app {
-    width: 700px;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 1em;
-    -webkit-box-shadow: 0px 0px 32px 14px rgba(0,0,0,0.1); 
-    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.05);
-}
-
-.head {
-    padding: 1rem 0;
+.notitifications-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding:3rem 0;
 }
-.head .head-title {
-    font-size: 1.5rem;
-    font-weight: 900;
+
+.notifications-title {
+    font-family: 'plusjakartabold';
+    font-size: clamp(1.3rem,2vw,1.5rem) ;
+    font-weight: 800;
+    color:var(--primary-color);
 }
-.head .number-notifys {
-    font-size: 1rem;
-    padding: .2rem .7rem;
-    margin-left: 0.4em;
-    color: white;
+
+.notification-unread {
+    
+    background-color: var(--primary-color);
+    color:var(--White);
+    padding: 0 .5em;
+    border-radius: .2em;
+    margin-left: .2em;
+}
+
+.mark-all {
+    font-weight: 800;
+    font-size: clamp(.9rem,2vw,1rem);
+    color:var(--Dark-grayish-blue);
+}
+
+.mark-all:hover {
+    color: var(--primary-color);
+}
+
+/* notifications */
+
+.notification {
+    display: flex;
+    align-items: center;
+    gap:clamp(.5rem,2vw,1rem);
+    padding:1rem;
+    background-color: var(--White);
     border-radius: .3rem;
-    background-color: #153D85;
+    /* min-height: 5rem; */
 }
-.head .head-read {
-    display: flex;
-    font-size: .9rem;
-    font-weight: thin;
-    padding: .2rem .7rem;
-    font-family: var(--font-normal);
+
+.unread {
+    background-color: var(--Light-grayish-blue-1);
 }
-.notify-badge .avatar img,
-.message-badge  .avatar img {
+
+.notification img {
     width: 3rem;
-    font-family: var(--font-normal);
-    margin-right: 1rem;
 }
-.notify-badge .notify-message .action p,
-.message-badge .notify-message .action p  {
-    margin-bottom: .5rem;
-    color: #8d8d8d;
+
+.notifications-banner {
+    display:flex;
+    flex-direction: column;
+    gap:.4rem;
 }
-.notify-badge .notify-message .action p strong,
-.message-badge .notify-message .action p strong {
-    color: #646464;
-    font-family: var(--font-bold);
-}
-.notify-badge .notify-message .action p strong.name,
-.message-badge .notify-message .action p strong.name {
-    color: black;
-    font-family: var(--font-bold);
-}
-.notify-badge .notify-message .action p .asterisk, 
-.message-badge .notify-message .action p .asterisk{
-    color: red;
-    font-family: var(--font-bold);
-}
-.notify-badge .notify-message .time p, 
-.message-badge .notify-message .time p{
-    color: #8d8d8d;
-    font-size: .9rem;
-}
-.notify-badge, .message-badge {
-    margin: .5rem 0;
-    padding: 1rem 1rem;
+
+.notifications-banner > div{
     display: flex;
-    font-family: var(--font-medium);
-    background-color: #F9FAFE;
-    border-radius: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    column-gap:.5rem;
 }
-.notify-badge .notify-message .action p strong.chess{
-    color: #153D85;
+
+.notifications-banner .username {
+    font-family: 'PlusJakartabold';
+    font-weight: 800;
+    font-size: clamp(.9rem,2vw,1rem);
 }
-.message-badge {
-    background-color: white;
+
+
+.notifications-banner .notif {
+    font-size: clamp(.9rem,2vw,1rem);
+    font-weight: 800;
+    color: var(--Grayish-blue);
 }
-.message-badge .private-msg{
-    margin: 1rem;
-    padding: 1rem;
-    border: 1px solid #8d8d8d;
-    color: #8d8d8d;
-    border-radius: 1rem;
+
+.notifications-banner .detail {
+    font-family: 'PlusJakartabold';
+    font-weight: 800;
+    font-size: clamp(.9rem,2vw,1rem);
+    color:var(--Dark-grayish-blue);
+}
+
+.notifications-banner .username:hover, .notifications-banner .detail:hover {
+    color:var(--primary-color);
+}
+ .club {
+    font-family: 'PlusJakartabold';
+    font-weight: 800;
+    font-size: clamp(.9rem,2vw,1rem);
+    color:var(--primary-color);
+   
+}
+
+.notifications-banner .unread {
+    display: inline-block; 
+    /* margin-left: .rem; */
+    vertical-align: middle;
+    width: clamp(.4rem,2vw,.5rem);
+    height: clamp(.4rem,2vw,.5rem);
+    border-radius: 50%;
+    background-color: var(--primary-color-2);
+}
+
+.notifications-banner .time {
+    font-size: clamp(.9rem,2vw,1rem);
+    font-weight: 800;
+    color: var(--Grayish-blue);
+}
+
+.message {
+    font-size: clamp(.95rem,2vw,1rem);
+    margin-top: .2rem;
+    font-weight: 800;
+    border:.1rem solid var(--Grayish-blue);
+    border-radius: .3rem;
+    padding:1.3rem .7rem;
+    color: var(--Grayish-blue);
+}
+
+.message:hover {
+    background-color: var(--Light-grayish-blue-1);
+    border:none;
+}
+
+
+@media (max-width: 600px){
+    body {
+        margin:0;
+    }
+    .notifications-banner {
+        column-gap: .1rem;;
+    }
+    
+    .notifications-banner > div {
+        display: block;
+    }
+
+    
 }
